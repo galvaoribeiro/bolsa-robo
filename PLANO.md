@@ -82,3 +82,9 @@ Escrever e revisar o código, achar erros no backtest (olhar o futuro, ignorar c
   - Alvo de 0,1% (mais próximo do original): 90% de acerto, mas fator de lucro 0,6–0,7 (os custos comem o ganho).
   - Original (sem stop, leva a posição para o dia seguinte): −6,9% em 60 pregões, pior operação −45% (RENT3; queda de −40% em 26/10/2026, que não consegui confirmar fora do Yahoo).
   - Antes de qualquer conclusão: rodar com anos de dados de minuto do MetaTrader 5 (no PC Windows) e incluir o IR de 20% de day trade.
+- **2026-11-24 — Busca ampla por estratégia "ótima" de swing trade** (`RELATORIO_BUSCA.md`, `PROTOCOLO.md`):
+  54 configurações em 8 famílias (momentum, filtros, meta de volatilidade, baixa volatilidade, dual momentum,
+  tendência multiativos, combinação, sazonalidade), com histórico oficial da B3 sem viés de sobrevivência, mais
+  186 variações sem custos com os dados do NEFIN. **Nenhuma passou no critério de "ótima".** A melhor opção
+  realista é a tendência multiativos com ETFs (≈ CDI + 2 a 4 pontos, queda de 10% a 20%), mas ela depende muito da
+  bolsa americana em reais.

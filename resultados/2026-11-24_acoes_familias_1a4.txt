@@ -1,0 +1,38 @@
+Custo 0,20% por lado | colunas: ao ano (CDI) | blocos 2005-09, 2010-14, 2015-19, 2020-26 | queda | sharpe | critérios
+
+--- Referência: todas as ações do universo, peso igual ---
+Universo inteiro (100 mais líquidas)       |  +7.5% (CDI +10.6%) | blocos +15.6%  -0.6% +21.5%  -1.3% | queda -61.1% | sharpe -0.00 | xxxx | giro 1.7x
+
+--- Família 1: momentum ---
+F1 mom12 terco                             | +10.0% (CDI +10.6%) | blocos +11.5%  +7.9% +22.6%  +1.9% | queda -59.9% | sharpe +0.09 | xxxx | giro 5.6x
+F1 mom12 20                                |  +8.8% (CDI +10.6%) | blocos  +6.6% +10.7% +22.4%  -0.0% | queda -65.0% | sharpe +0.05 | xxxx | giro 6.8x
+F1 mom12 10                                |  +8.5% (CDI +10.6%) | blocos  +2.8% +15.1% +18.3%  +1.5% | queda -70.1% | sharpe +0.06 | xxxx | giro 8.0x
+F1 mom6 terco                              | +11.4% (CDI +10.6%) | blocos +16.7% +10.7% +24.3%  -0.2% | queda -57.4% | sharpe +0.15 | xxxx | giro 7.8x
+F1 mom6 20                                 | +11.3% (CDI +10.6%) | blocos +14.0% +11.7% +24.8%  +0.4% | queda -58.7% | sharpe +0.15 | xxxx | giro 9.5x
+F1 mom6 10                                 | +10.1% (CDI +10.6%) | blocos +10.2% +13.2% +29.2%  -4.2% | queda -62.2% | sharpe +0.12 | xxxx | giro 10.9x
+
+--- Família 2: momentum + filtro de tendência do Ibovespa ---
+F2 mom12 terco filtro 6m                   | +12.8% (CDI +10.6%) | blocos +22.7%  +5.8% +26.1%  +2.1% | queda -32.5% | sharpe +0.21 | xxxx | giro 5.5x
+F2 mom12 terco filtro 10m                  | +10.3% (CDI +10.6%) | blocos +20.7%  +4.8% +24.3%  -1.8% | queda -36.7% | sharpe +0.07 | xxxx | giro 5.4x
+F2 mom12 terco filtro 12m                  |  +9.5% (CDI +10.6%) | blocos +20.3%  +7.7% +25.5%  -6.6% | queda -53.0% | sharpe +0.04 | xxxx | giro 5.4x
+F2 mom12 20 filtro 6m                      | +12.4% (CDI +10.6%) | blocos +18.0%  +7.2% +28.0%  +1.6% | queda -38.8% | sharpe +0.18 | xxxx | giro 6.2x
+F2 mom12 20 filtro 10m                     |  +9.6% (CDI +10.6%) | blocos +16.2%  +4.4% +27.1%  -2.5% | queda -40.6% | sharpe +0.04 | xxxx | giro 6.2x
+F2 mom12 20 filtro 12m                     |  +8.7% (CDI +10.6%) | blocos +16.3%  +7.6% +26.9%  -7.0% | queda -56.1% | sharpe +0.01 | xxxx | giro 6.2x
+
+--- Família 3: momentum + meta de volatilidade ---
+F3 mom12 terco metavol 12%                 | +10.0% (CDI +10.6%) | blocos +16.9%  +6.7% +15.4%  +3.8% | queda -27.7% | sharpe +0.03 | xx.x | giro 4.2x
+F3 mom12 terco metavol 15%                 |  +9.9% (CDI +10.6%) | blocos +17.2%  +6.8% +17.3%  +1.8% | queda -35.8% | sharpe +0.04 | xxxx | giro 4.9x
+F3 mom12 terco metavol 20%                 |  +9.1% (CDI +10.6%) | blocos +15.3%  +7.1% +19.9%  -1.0% | queda -46.4% | sharpe +0.03 | xxxx | giro 5.5x
+F2+F3 mom12 terco filtro 10m metavol 15%   | +10.4% (CDI +10.6%) | blocos +21.5%  +5.1% +19.3%  +0.8% | queda -26.6% | sharpe +0.05 | xx.x | giro 4.7x
+F3 mom12 20 metavol 12%                    |  +9.7% (CDI +10.6%) | blocos +14.1%  +9.3% +15.0%  +3.3% | queda -29.6% | sharpe +0.00 | xx.x | giro 4.6x
+F3 mom12 20 metavol 15%                    |  +9.4% (CDI +10.6%) | blocos +13.9%  +9.7% +16.6%  +1.2% | queda -38.1% | sharpe +0.01 | xxxx | giro 5.6x
+F3 mom12 20 metavol 20%                    |  +8.0% (CDI +10.6%) | blocos +11.0%  +9.8% +18.8%  -2.5% | queda -49.7% | sharpe -0.02 | xxxx | giro 6.4x
+F2+F3 mom12 20 filtro 10m metavol 15%      | +10.3% (CDI +10.6%) | blocos +18.8%  +4.9% +21.1%  +1.3% | queda -25.5% | sharpe +0.05 | xx.x | giro 5.0x
+
+--- Família 4: baixa volatilidade e combinação ---
+F4 baixavol terco                          | +10.6% (CDI +10.6%) | blocos +18.2%  +3.7% +18.5%  +5.0% | queda -46.2% | sharpe +0.09 | xxxx | giro 2.6x
+F4 baixavol 20                             | +11.5% (CDI +10.6%) | blocos +16.9%  +6.3% +20.6%  +5.3% | queda -44.9% | sharpe +0.13 | xxxx | giro 3.0x
+F4 baixavol terco filtro 10m               |  +9.6% (CDI +10.6%) | blocos +23.6%  +3.1% +17.0%  +0.2% | queda -28.7% | sharpe -0.01 | xx.x | giro 3.6x
+F4 mom_baixavol terco                      | +12.0% (CDI +10.6%) | blocos +17.7%  +8.9% +18.4%  +5.6% | queda -49.9% | sharpe +0.16 | xxxx | giro 4.3x
+F4 mom_baixavol 20                         | +13.2% (CDI +10.6%) | blocos +16.1% +12.9% +23.6%  +4.5% | queda -48.4% | sharpe +0.22 | xxxx | giro 5.2x
+F4 mom_baixavol terco filtro 10m           | +11.4% (CDI +10.6%) | blocos +23.3%  +7.2% +18.1%  +1.8% | queda -28.6% | sharpe +0.12 | xx.x | giro 4.7x

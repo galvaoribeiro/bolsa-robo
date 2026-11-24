@@ -1,0 +1,30 @@
+
+================ Validação: Tendência multiativos 6m (pesos iguais) ================
+FINALISTA {'meses': 6}                     | +14.9% (CDI +10.6%) | blocos +16.3%  +9.6% +18.8% +14.6% | queda -15.0% | sharpe +0.41 | x..x
+  vizinho {'meses': 3}                     | +13.3% (CDI +10.6%) | blocos +13.3%  +9.7% +12.0% +16.6% | queda -15.0% | sharpe +0.28 | x..x
+  vizinho {'meses': 4}                     | +14.0% (CDI +10.6%) | blocos +15.5% +10.9% +13.5% +15.1% | queda -15.0% | sharpe +0.34 | x..x
+  vizinho {'meses': 8}                     | +13.2% (CDI +10.6%) | blocos +13.1%  +7.2% +16.4% +15.3% | queda -15.0% | sharpe +0.27 | xx.x
+  vizinho {'meses': 9}                     | +13.4% (CDI +10.6%) | blocos +13.2%  +7.6% +16.9% +15.0% | queda -15.0% | sharpe +0.29 | xx.x
+  custo dobrado                            | +14.6% (CDI +10.6%) | blocos +16.0%  +9.2% +18.6% +14.3% | queda -15.1% | sharpe +0.39 | x..x
+  com IR de 15% (informativo)              | +13.4% (CDI +10.6%) | blocos +15.3%  +8.5% +17.0% +12.5% | queda -15.0% | sharpe +0.28 | x..x
+  sem IBOV                                 | +14.9% (CDI +10.6%) | blocos +11.3% +14.3% +16.0% +17.0% | queda -15.0% | sharpe +0.47 | x..x
+  sem SPX                                  | +12.1% (CDI +10.6%) | blocos +18.9%  +4.4% +14.2% +11.1% | queda -11.0% | sharpe +0.20 | x..x
+  sem OURO                                 | +13.3% (CDI +10.6%) | blocos +16.0% +10.1% +16.8% +11.2% | queda -10.5% | sharpe +0.35 | x..x
+  Sharpe deflacionado: probabilidade de Sharpe real > 0 = 73% (considerando 54 tentativas)
+  Critérios: c1_cdi_mais_5: FALHA | c2_blocos: ok | c3_queda_30: ok | c4_sharpe_05: FALHA | c5a_vizinhos_cdi+3: FALHA | c5b_custo2x_cdi+3: ok | c6_sem_melhor_cdi+3: FALHA | c4b_dsr_90: FALHA
+  RESULTADO: NÃO PASSA
+
+================ Validação: Dual momentum 9m top 2 ================
+FINALISTA {'meses': 9}                     | +15.6% (CDI +10.6%) | blocos +12.3% +11.0% +16.8% +20.7% | queda -18.0% | sharpe +0.39 | x..x
+  vizinho {'meses': 5}                     | +14.1% (CDI +10.6%) | blocos +16.1%  +8.5% +15.4% +15.6% | queda -17.9% | sharpe +0.29 | x..x
+  vizinho {'meses': 6}                     | +13.8% (CDI +10.6%) | blocos +14.4%  +9.5% +13.9% +16.3% | queda -25.5% | sharpe +0.28 | x..x
+  vizinho {'meses': 12}                    | +13.7% (CDI +10.6%) | blocos  +9.9% +13.5% +14.2% +16.0% | queda -19.7% | sharpe +0.27 | x..x
+  vizinho {'meses': 13}                    | +13.3% (CDI +10.6%) | blocos +10.5% +13.3% +13.1% +15.0% | queda -19.5% | sharpe +0.24 | x..x
+  custo dobrado                            | +15.3% (CDI +10.6%) | blocos +12.1% +10.6% +16.5% +20.5% | queda -18.1% | sharpe +0.38 | x..x
+  com IR de 15% (informativo)              | +14.0% (CDI +10.6%) | blocos +11.7% +10.3% +14.3% +18.3% | queda -20.5% | sharpe +0.29 | x..x
+  sem IBOV                                 | +16.6% (CDI +10.6%) | blocos  +9.4% +17.5% +15.7% +22.0% | queda -16.2% | sharpe +0.52 | PASSA
+  sem SPX                                  | +11.4% (CDI +10.6%) | blocos +12.5%  +4.5% +12.8% +14.8% | queda -17.7% | sharpe +0.12 | xx.x
+  sem OURO                                 | +13.9% (CDI +10.6%) | blocos +16.2%  +9.8% +14.8% +14.6% | queda -12.2% | sharpe +0.34 | x..x
+  Sharpe deflacionado: probabilidade de Sharpe real > 0 = 70% (considerando 54 tentativas)
+  Critérios: c1_cdi_mais_5: FALHA | c2_blocos: ok | c3_queda_30: ok | c4_sharpe_05: FALHA | c5a_vizinhos_cdi+3: FALHA | c5b_custo2x_cdi+3: ok | c6_sem_melhor_cdi+3: FALHA | c4b_dsr_90: FALHA
+  RESULTADO: NÃO PASSA

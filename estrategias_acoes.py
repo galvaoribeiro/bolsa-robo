@@ -93,7 +93,10 @@ def selecionar(s: Sinais, d, sinal: str, tamanho):
 
 
 def estrategia(s: Sinais, sinal="mom12", tamanho="terco", filtro_meses=None, meta_vol=None):
+    datas_b3 = s.ret.index
+
     def decidir(d):
+        d = datas_b3[datas_b3.searchsorted(d, "right") - 1]     # último pregão da B3 até d
         if filtro_meses and not s.ibov_acima_media(d, filtro_meses):
             return pd.Series(dtype=float)
         esc = selecionar(s, d, sinal, tamanho)

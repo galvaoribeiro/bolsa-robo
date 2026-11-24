@@ -1,0 +1,13 @@
+Total de configurações registradas: 61 (sem contar referências: 54)
+
+1_momentum       |   6 testadas | passam 1–4:  0 | melhor: F1 mom6 20                               | +11.3% (CDI +10.6%) | queda -58.7% | sharpe +0.15
+2_mom_filtro     |   6 testadas | passam 1–4:  0 | melhor: F2 mom12 terco filtro 6m                 | +12.8% (CDI +10.6%) | queda -32.5% | sharpe +0.21
+3_mom_metavol    |   8 testadas | passam 1–4:  0 | melhor: F2+F3 mom12 terco filtro 10m metavol 15% | +10.4% (CDI +10.6%) | queda -26.6% | sharpe +0.05
+4_baixavol       |   6 testadas | passam 1–4:  0 | melhor: F4 mom_baixavol 20                       | +13.2% (CDI +10.6%) | queda -48.4% | sharpe +0.22
+5_dual_momentum  |  12 testadas | passam 1–4:  0 | melhor: DM IBO+SPX+OUR 9m top2                   | +15.6% (CDI +10.6%) | queda -17.9% | sharpe +0.39
+6_tendencia      |  12 testadas | passam 1–4:  0 | melhor: TEND IBO+SPX+OUR 6m risco                | +14.9% (CDI +10.6%) | queda -16.2% | sharpe +0.42
+7_combinada      |   1 testadas | passam 1–4:  0 | melhor: F7 50% multiativos 10m + 50% ações {'sin | +13.7% (CDI +10.6%) | queda -26.2% | sharpe +0.31
+8_sazonalidade   |   3 testadas | passam 1–4:  0 | melhor: Virada do mês -1/+2                      | +13.2% (CDI +10.6%) | queda -16.5% | sharpe +0.29
+referencia       |   7 testadas | passam 1–4:  0 | melhor: 1/3 Ibov, 1/3 S&P, 1/3 ouro              | +13.5% (CDI +10.6%) | queda -27.1% | sharpe +0.25
+
+Nenhuma configuração passa nos critérios 1–4.
