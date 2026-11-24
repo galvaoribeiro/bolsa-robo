@@ -1,0 +1,29 @@
+
+######## 15 sobreviventes | 2011-01-11 a 2026-11-19 (metades em 2018-12-17) ########
+                     |  ao ano | 1ª met. | 2ª met. | pior queda | sharpe
+Setup 9.1            |   +5.6% |   +2.3% |   +9.0% |     -23.5% | -0.27
+Comprar e segurar    |  +12.7% |  +13.5% |  +12.0% |     -41.5% | +0.22
+CDI                  |  +10.0% |  +10.3% |   +9.6% |      +0.0% | +0.00
+9.1 sem SUZB3        |   +4.6% |   +0.8% |   +8.5% |     -27.3% | -0.30   <- sem a ação que mais rendeu (7x)
+Operações: 3691 operações | acerto 27% | ganho médio +7.4% | perda média -2.7% | fator de lucro 1.03
+   duração média 7 pregões (máx 66) | pior operação -35.9% | pior perda flutuante -18.5%
+   tempo comprado: 46% | motivos de saída: {'saida_mme': 2502, 'stop': 708, 'stop_mesmo_dia': 476, 'aberta_no_fim': 5}
+
+######## 21 com as que quebraram | 2011-01-11 a 2026-11-19 (metades em 2018-12-17) ########
+                     |  ao ano | 1ª met. | 2ª met. | pior queda | sharpe
+Setup 9.1            |  +14.8% |  +15.1% |  +14.5% |     -56.0% | +0.31
+Comprar e segurar    |  +10.5% |  +14.6% |   +6.6% |     -51.1% | +0.14
+CDI                  |  +10.0% |  +10.3% |   +9.6% |      +0.0% | +0.00
+9.1 sem MGLU3        |   +4.6% |   +6.2% |   +2.9% |     -42.7% | -0.23   <- sem a ação que mais rendeu (141x)
+Operações: 4934 operações | acerto 27% | ganho médio +9.1% | perda média -3.1% | fator de lucro 1.07
+   duração média 7 pregões (máx 66) | pior operação -71.5% | pior perda flutuante -36.9%
+   tempo comprado: 43% | motivos de saída: {'saida_mme': 3339, 'stop': 902, 'stop_mesmo_dia': 686, 'aberta_no_fim': 7}
+
+######## Só BOVA11 | 2011-01-11 a 2026-11-19 (metades em 2018-12-14) ########
+                     |  ao ano | 1ª met. | 2ª met. | pior queda | sharpe
+Setup 9.1            |   +5.3% |   +0.9% |   +9.9% |     -28.9% | -0.22
+Comprar e segurar    |   +5.6% |   +2.4% |   +8.9% |     -48.7% | -0.05
+CDI                  |  +10.0% |  +10.3% |   +9.6% |      +0.0% | +0.00
+Operações: 242 operações | acerto 26% | ganho médio +5.7% | perda média -1.9% | fator de lucro 1.07
+   duração média 8 pregões (máx 56) | pior operação -9.1% | pior perda flutuante -6.4%
+   tempo comprado: 48% | motivos de saída: {'saida_mme': 160, 'stop': 52, 'stop_mesmo_dia': 30}

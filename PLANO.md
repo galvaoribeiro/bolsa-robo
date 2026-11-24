@@ -70,3 +70,8 @@ Escrever e revisar o código, achar erros no backtest (olhar o futuro, ignorar c
     veio da 1ª metade (+20,2%). Na 2ª metade (2019–2026) empatou com o CDI (+9,7% contra +9,6%), com queda de −50% na pandemia.
   - Pequenas mudanças na regra alteram muito o resultado (de +5% a +17% ao ano). Sinal de fragilidade.
   - **Não passa no critério** (bater o CDI com folga nas duas metades).
+- **2026-11-24 — Setup 9.1 (Larry Williams), diário, só compra** (`resultados/2026-11-24_setup91.txt`):
+  - 15 sobreviventes: +5,6% ao ano contra +10,0% do CDI. BOVA11: +5,3%. Acerta 26–27% das operações; fator de lucro 1,03–1,07.
+  - Nas 21 ações deu +14,8%, mas só por causa da Magalu (subiu mais de 100x em 2015–2020). Sem ela: +4,6%.
+  - Pior operação: −71,5% (Americanas, jan/2023). A ação abriu muito abaixo do stop, então o stop não protegeu.
+  - **Reprovado.** É a 5ª ideia testada: o limite do plano foi atingido.
