@@ -1,0 +1,32 @@
+
+######## Universo: 15 sobreviventes | 2011-01-11 a 2026-11-19 (metades divididas em 2018-12-17) ########
+                                         |  ao ano | 1ª met. | 2ª met. | pior queda | sharpe
+12m, 5 ações, c/ filtro (principal)      |  +13.6% |  +15.3% |  +12.0% |     -43.2% | +0.26
+6m, 5 ações, c/ filtro                   |   +5.3% |   +5.2% |   +5.4% |     -44.9% | -0.07
+12m, 3 ações, c/ filtro                  |  +10.7% |   +9.0% |  +12.4% |     -46.8% | +0.16
+12m, 5 ações, SEM filtro                 |  +14.5% |  +16.3% |  +12.8% |     -43.2% | +0.29
+Comprar e segurar (todas, peso igual)    |  +14.8% |  +15.3% |  +14.2% |     -43.8% | +0.30
+BOVA11                                   |   +5.6% |   +2.3% |   +9.0% |     -48.7% | -0.05
+CDI                                      |  +10.0% |  +10.3% |   +9.6% |      +0.0% | +0.00
+
+Principal: giro de 4.6x o patrimônio por ano | 0 de 190 meses 100% no CDI
+Últimas carteiras (decisão no fim do mês):
+   2026-08-31: GGBR4, PETR4, VALE3, ITSA4, ABEV3
+   2026-09-30: PETR4, GGBR4, VALE3, WEGE3, B3SA3
+   2026-10-30: PETR4, B3SA3, ITSA4, GGBR4, ABEV3
+
+######## Universo: 21 com as que quebraram | 2011-01-11 a 2026-11-19 (metades divididas em 2018-12-17) ########
+                                         |  ao ano | 1ª met. | 2ª met. | pior queda | sharpe
+12m, 5 ações, c/ filtro (principal)      |  +14.8% |  +20.2% |   +9.7% |     -50.0% | +0.30
+6m, 5 ações, c/ filtro                   |  +12.2% |  +16.6% |   +8.0% |     -49.7% | +0.21
+12m, 3 ações, c/ filtro                  |  +17.4% |  +23.2% |  +11.9% |     -55.9% | +0.37
+12m, 5 ações, SEM filtro                 |  +16.6% |  +24.0% |   +9.6% |     -50.0% | +0.35
+Comprar e segurar (todas, peso igual)    |   +8.2% |  +15.6% |   +1.2% |     -50.9% | +0.06
+BOVA11                                   |   +5.6% |   +2.3% |   +9.0% |     -48.7% | -0.05
+CDI                                      |  +10.0% |  +10.3% |   +9.6% |      +0.0% | +0.00
+
+Principal: giro de 5.0x o patrimônio por ano | 0 de 190 meses 100% no CDI
+Últimas carteiras (decisão no fim do mês):
+   2026-08-31: GGBR4, PETR4, VALE3, ITSA4, ABEV3
+   2026-09-30: PETR4, GGBR4, VALE3, WEGE3, B3SA3
+   2026-10-30: PETR4, B3SA3, ITSA4, GGBR4, ABEV3

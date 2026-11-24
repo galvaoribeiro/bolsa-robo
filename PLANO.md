@@ -64,3 +64,9 @@ Escrever e revisar o código, achar erros no backtest (olhar o futuro, ignorar c
   - A) Correção com stop: fator de lucro 1,01 (zero vantagem depois dos custos); perde para o CDI na 2ª metade. **Reprovada.**
   - B) Estratégia do Reddit (preço médio para baixo, sem stop): 100% de acerto nas 15 ações que sobreviveram,
     mas zerou a conta na Americanas e teve quedas de −74% a −81% em Oi, Casas Bahia, CVC e Magalu. **Reprovada por risco.**
+- **2026-11-24 — Momentum mensal** (`resultados/2026-11-24_momentum_mensal.txt`):
+  - Nas 15 sobreviventes, o momentum (+13,6% ao ano) rende menos que só comprar e segurar as mesmas ações (+14,8%).
+  - Com as 21 ações (incluindo as que quebraram): +14,8% ao ano contra +10,0% do CDI, mas quase todo o ganho
+    veio da 1ª metade (+20,2%). Na 2ª metade (2019–2026) empatou com o CDI (+9,7% contra +9,6%), com queda de −50% na pandemia.
+  - Pequenas mudanças na regra alteram muito o resultado (de +5% a +17% ao ano). Sinal de fragilidade.
+  - **Não passa no critério** (bater o CDI com folga nas duas metades).
