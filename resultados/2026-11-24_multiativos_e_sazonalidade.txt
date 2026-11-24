@@ -1,0 +1,43 @@
+Dados: 2002-07-30 a 2026-11-23 | testes a partir de 2005-01 | custo 0.10% por lado
+Colunas: retorno ao ano (CDI) | blocos 2005-09, 2010-14, 2015-19, 2020-26 | pior queda | sharpe | critérios 1-4
+
+--- Referências (sem sinal) ---
+100% Ibovespa                              |  +8.7% (CDI +10.6%) | blocos +21.6%  -6.6% +19.0%  +4.8% | queda -60.0% | sharpe +0.06 | xxxx | giro 0.0x
+100% S&P 500 em reais                      | +13.7% (CDI +10.6%) | blocos  -8.3% +24.7% +20.0% +19.6% | queda -49.1% | sharpe +0.24 | x.xx | giro 0.0x
+100% ouro em reais                         | +13.6% (CDI +10.6%) | blocos  +9.9%  +9.8% +13.0% +19.3% | queda -29.5% | sharpe +0.23 | x..x | giro 0.0x
+1/3 Ibov, 1/3 S&P, 1/3 ouro                | +13.5% (CDI +10.6%) | blocos  +8.6%  +9.7% +18.7% +16.0% | queda -27.1% | sharpe +0.25 | x..x | giro 0.5x
+1/4 cada (Ibov, S&P, ouro, Treasuries)     | +12.0% (CDI +10.6%) | blocos  +5.8% +11.3% +16.8% +13.4% | queda -17.7% | sharpe +0.16 | x..x | giro 0.5x
+50% CDI + 50% (1/3 cada)                   | +12.2% (CDI +10.6%) | blocos +11.2%  +9.7% +14.2% +13.2% | queda -11.7% | sharpe +0.24 | x..x | giro 0.3x
+
+--- Família 5: dual momentum ---
+DM IBO+SPX+OUR 6m top1                     | +15.0% (CDI +10.6%) | blocos +17.9%  +9.6% +13.8% +17.3% | queda -46.0% | sharpe +0.29 | x.xx | giro 6.0x
+DM IBO+SPX+OUR 6m top2                     | +13.8% (CDI +10.6%) | blocos +14.4%  +9.5% +13.9% +16.3% | queda -25.5% | sharpe +0.28 | x..x | giro 3.7x
+DM IBO+SPX+OUR 9m top1                     | +11.2% (CDI +10.6%) | blocos  +6.2% +14.5% +10.6% +12.5% | queda -33.3% | sharpe +0.13 | x.xx | giro 4.9x
+DM IBO+SPX+OUR 9m top2                     | +15.6% (CDI +10.6%) | blocos +12.3% +11.0% +16.8% +20.7% | queda -18.0% | sharpe +0.39 | x..x | giro 2.4x
+DM IBO+SPX+OUR 12m top1                    | +13.5% (CDI +10.6%) | blocos  +8.7% +13.0% +12.8% +17.5% | queda -37.1% | sharpe +0.23 | x.xx | giro 4.3x
+DM IBO+SPX+OUR 12m top2                    | +13.7% (CDI +10.6%) | blocos  +9.9% +13.5% +14.2% +16.0% | queda -19.7% | sharpe +0.27 | x..x | giro 2.6x
+DM IBO+SPX+OUR+TRE 6m top1                 | +13.6% (CDI +10.6%) | blocos +19.3%  +5.8% +11.3% +16.7% | queda -46.0% | sharpe +0.23 | x.xx | giro 7.0x
+DM IBO+SPX+OUR+TRE 6m top2                 | +14.0% (CDI +10.6%) | blocos +14.6% +10.4% +14.4% +15.4% | queda -25.6% | sharpe +0.28 | x..x | giro 4.6x
+DM IBO+SPX+OUR+TRE 9m top1                 |  +8.7% (CDI +10.6%) | blocos  +7.3% +11.1%  +3.8% +11.3% | queda -33.3% | sharpe +0.02 | xxxx | giro 6.0x
+DM IBO+SPX+OUR+TRE 9m top2                 | +14.0% (CDI +10.6%) | blocos +12.0%  +8.8% +14.8% +18.8% | queda -24.9% | sharpe +0.28 | xx.x | giro 3.2x
+DM IBO+SPX+OUR+TRE 12m top1                | +11.7% (CDI +10.6%) | blocos  +5.9% +12.2%  +8.8% +17.5% | queda -44.8% | sharpe +0.15 | xxxx | giro 5.3x
+DM IBO+SPX+OUR+TRE 12m top2                | +12.5% (CDI +10.6%) | blocos  +8.7% +12.3% +12.6% +15.0% | queda -27.5% | sharpe +0.19 | x..x | giro 3.1x
+
+--- Família 6: tendência por ativo ---
+TEND IBO+SPX+OUR 6m iguais                 | +14.9% (CDI +10.6%) | blocos +16.3%  +9.6% +18.8% +14.6% | queda -15.0% | sharpe +0.41 | x..x | giro 2.5x
+TEND IBO+SPX+OUR 6m risco                  | +14.9% (CDI +10.6%) | blocos +14.4% +11.6% +18.2% +15.0% | queda -16.2% | sharpe +0.42 | x..x | giro 2.8x
+TEND IBO+SPX+OUR 10m iguais                | +13.2% (CDI +10.6%) | blocos +14.4%  +7.4% +17.1% +13.5% | queda -15.4% | sharpe +0.27 | x..x | giro 2.1x
+TEND IBO+SPX+OUR 10m risco                 | +13.3% (CDI +10.6%) | blocos +12.5%  +9.7% +16.9% +13.8% | queda -17.2% | sharpe +0.29 | x..x | giro 2.4x
+TEND IBO+SPX+OUR 12m iguais                | +12.9% (CDI +10.6%) | blocos +14.6%  +8.1% +16.8% +12.2% | queda -20.1% | sharpe +0.24 | x..x | giro 2.0x
+TEND IBO+SPX+OUR 12m risco                 | +13.0% (CDI +10.6%) | blocos +12.5% +10.3% +16.2% +12.9% | queda -17.0% | sharpe +0.25 | x..x | giro 2.3x
+TEND IBO+SPX+OUR+TRE 6m iguais             | +14.1% (CDI +10.6%) | blocos +15.1% +10.3% +17.2% +13.6% | queda -14.5% | sharpe +0.37 | x..x | giro 2.6x
+TEND IBO+SPX+OUR+TRE 6m risco              | +14.1% (CDI +10.6%) | blocos +14.2% +12.1% +16.4% +13.6% | queda -14.7% | sharpe +0.37 | x..x | giro 2.9x
+TEND IBO+SPX+OUR+TRE 10m iguais            | +12.9% (CDI +10.6%) | blocos +12.3%  +8.4% +16.3% +14.0% | queda -12.9% | sharpe +0.27 | xx.x | giro 2.1x
+TEND IBO+SPX+OUR+TRE 10m risco             | +12.9% (CDI +10.6%) | blocos +10.5% +10.4% +15.7% +14.2% | queda -13.8% | sharpe +0.27 | x..x | giro 2.4x
+TEND IBO+SPX+OUR+TRE 12m iguais            | +12.8% (CDI +10.6%) | blocos +12.8%  +8.9% +16.3% +12.9% | queda -12.8% | sharpe +0.25 | xx.x | giro 1.9x
+TEND IBO+SPX+OUR+TRE 12m risco             | +12.8% (CDI +10.6%) | blocos +10.9% +10.7% +15.6% +13.6% | queda -13.8% | sharpe +0.26 | x..x | giro 2.2x
+
+Virada do mês no Ibovespa (resto do tempo no CDI), custo 0,10% por lado:
+Virada do mês -1/+2                        | +13.1% (CDI +10.6%) | blocos +25.8% +10.6% +12.4%  +6.9% | queda -16.5% | sharpe +0.29 | xx.x | tempo comprado 15%
+Virada do mês -1/+3                        | +12.9% (CDI +10.6%) | blocos +22.9%  +8.3% +14.4%  +8.4% | queda -24.2% | sharpe +0.25 | xx.x | tempo comprado 19%
+Virada do mês -1/+4                        | +11.7% (CDI +10.6%) | blocos +16.8%  +6.3% +15.9%  +8.9% | queda -30.2% | sharpe +0.14 | xxxx | tempo comprado 24%

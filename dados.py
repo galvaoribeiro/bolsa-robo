@@ -40,7 +40,7 @@ def cdi(atualizar: bool = False) -> pd.Series:
         import urllib.request
         PASTA.mkdir(exist_ok=True)
         partes = []
-        for ano in range(int(INICIO[:4]), date.today().year + 1, 5):
+        for ano in range(2000, date.today().year + 1, 5):
             fim = min(ano + 4, date.today().year)
             url = ("https://api.bcb.gov.br/dados/serie/bcdata.sgs.12/dados?formato=json"
                    f"&dataInicial=01/01/{ano}&dataFinal=31/12/{fim}")
@@ -80,3 +80,52 @@ def intraday(ticker: str, intervalo: str = "1m") -> pd.DataFrame:
     novo = novo[(novo[["Open", "High", "Low", "Close"]] > 0).all(axis=1)]
     novo.to_csv(arq)
     return novo
+
+
+def serie_bcb(codigo: int, nome: str, atualizar: bool = False) -> pd.Series:
+    """Série diária do Banco Central (SGS). Ex.: 1 = dólar PTAX venda."""
+    import json
+    import urllib.request
+    arq = PASTA / f"bcb_{codigo}.csv"
+    if atualizar or not arq.exists():
+        PASTA.mkdir(exist_ok=True)
+        partes = []
+        for ano in range(2000, date.today().year + 1, 5):
+            fim = min(ano + 4, date.today().year)
+            url = (f"https://api.bcb.gov.br/dados/serie/bcdata.sgs.{codigo}/dados?formato=json"
+                   f"&dataInicial=01/01/{ano}&dataFinal=31/12/{fim}")
+            with urllib.request.urlopen(url, timeout=60) as r:
+                partes += json.load(r)
+        s = pd.Series({pd.to_datetime(p["data"], dayfirst=True): float(p["valor"]) for p in partes},
+                      name=nome).sort_index()
+        s.to_csv(arq, header=True)
+    return pd.read_csv(arq, index_col=0, parse_dates=True)[nome]
+
+
+def multiativos(taxas: bool = True) -> pd.DataFrame:
+    """Índices de retorno total em REAIS, diários (dias úteis da B3), com taxa de administração descontada:
+    IBOV (≈BOVA11), SPX (SPY × dólar ≈ IVVB11), OURO (GLD, antes de 2005 ouro futuro, × dólar ≈ GOLD11),
+    DOLAR (PTAX), TREA (Treasuries 7-10 anos, IEF × dólar)."""
+    global INICIO
+    INICIO_ANT, INICIO = INICIO, "2000-01-01"
+    p = precos(["^BVSP", "SPY", "GLD", "GC=F", "IEF"])
+    INICIO = INICIO_ANT
+    usd = serie_bcb(1, "usd")
+    ibov = p["^BVSP"].Close
+    datas = ibov.index
+    gld, gcf = p["GLD"].Close, p["GC=F"].Close
+    ouro_usd = pd.concat([gcf[:gld.index[0]] * gld.iloc[0] / gcf.reindex(gld.index).dropna().iloc[0],
+                          gld[gld.index[0]:].iloc[1:]])
+    usd_d = usd.reindex(datas).ffill()
+    df = pd.DataFrame({
+        "IBOV": ibov,
+        "SPX": p["SPY"].Close.reindex(datas).ffill() * usd_d,
+        "OURO": ouro_usd.reindex(datas).ffill() * usd_d,
+        "DOLAR": usd_d,
+        "TREA": p["IEF"].Close.reindex(datas).ffill() * usd_d,
+    }).dropna()
+    if taxas:                                      # taxa de administração anual aproximada dos ETFs na B3
+        anos = (df.index - df.index[0]).days / 365.25
+        for c, tx in {"IBOV": 0.001, "SPX": 0.008, "OURO": 0.003, "TREA": 0.008}.items():
+            df[c] = df[c] * (1 - tx) ** anos
+    return df
