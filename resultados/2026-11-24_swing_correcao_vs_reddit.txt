@@ -1,0 +1,35 @@
+
+=== Período completo: 2010-10-22 a 2026-11-19 ===
+A) Correção c/ stop         | ao ano  +9.1% | vol  4.2% | pior queda  -8.2% | sharpe -0.16
+B) Reddit (média p/ baixo)  | ao ano +10.6% | vol  2.1% | pior queda  -3.9% | sharpe +0.28
+Comprar e segurar           | ao ano +12.6% | vol 21.3% | pior queda -41.4% | sharpe +0.22
+CDI                         | ao ano +10.0% | vol  0.2% | pior queda  +0.0% | sharpe +0.00
+
+=== 1ª metade: 2010-10-22 a 2018-11-06 ===
+A) Correção c/ stop         | ao ano +11.6% | vol  4.1% | pior queda  -4.4% | sharpe +0.28
+B) Reddit (média p/ baixo)  | ao ano +10.9% | vol  1.8% | pior queda  -3.1% | sharpe +0.28
+Comprar e segurar           | ao ano +13.3% | vol 18.7% | pior queda -28.2% | sharpe +0.23
+CDI                         | ao ano +10.4% | vol  0.2% | pior queda  +0.0% | sharpe -0.00
+
+=== 2ª metade: 2018-11-06 a 2026-11-19 ===
+A) Correção c/ stop         | ao ano  +6.7% | vol  4.3% | pior queda  -8.2% | sharpe -0.59
+B) Reddit (média p/ baixo)  | ao ano +10.3% | vol  2.3% | pior queda  -3.9% | sharpe +0.28
+Comprar e segurar           | ao ano +12.0% | vol 23.6% | pior queda -41.4% | sharpe +0.21
+CDI                         | ao ano  +9.6% | vol  0.3% | pior queda  +0.0% | sharpe +0.00
+
+=== Operações (todas as 15 ações, período completo) ===
+A) Correção c/ stop:
+   1574 operações | acerto 61% | ganho médio +2.3% | perda média -3.5% | fator de lucro 1.01
+   duração média 4 pregões (máx 11) | pior operação -17.4% | pior perda flutuante -7.9%
+B) Reddit (média p/ baixo):
+   740 operações | acerto 100% | ganho médio +1.0% | perda média -4.6% | fator de lucro 52.39
+   duração média 3 pregões (máx 142) | pior operação -6.4% | pior perda flutuante -29.8%
+
+=== Teste de estresse: uma ação por conta, com a conta inteira nela ===
+(total = quanto a conta rendeu; compare com o CDI do mesmo período)
+AMER3  ação -100% | CDI +359% | A: total +165%, pior queda -32%, pior operação  -8% | B: total -100%, pior queda -100%, pior operação -100%
+OIBR3  ação -100% | CDI +359% | A: total +416%, pior queda -27%, pior operação  -8% | B: total +545%, pior queda -81%, pior operação  -0%
+BHIA3  ação  -99% | CDI +359% | A: total +319%, pior queda -39%, pior operação -12% | B: total  +92%, pior queda -81%, pior operação -64%
+CVCB3  ação  -94% | CDI +219% | A: total +118%, pior queda -23%, pior operação  -8% | B: total +263%, pior queda -74%, pior operação  +1%
+IRBR3  ação  -83% | CDI +114% | A: total +164%, pior queda -16%, pior operação  -8% | B: total +136%, pior queda -11%, pior operação  +1%
+MGLU3  ação +226% | CDI +298% | A: total +330%, pior queda -21%, pior operação -12% | B: total +318%, pior queda -75%, pior operação  +1%

@@ -56,3 +56,11 @@ Escrever e revisar o código, achar erros no backtest (olhar o futuro, ignorar c
 1. [ ] Instalar Git e VS Code; rodar `backtest_mm200.py` no seu computador e me mandar a saída.
 2. [ ] (Opcional) Reenviar `reddit_comentarios_2_threads.md`.
 3. [ ] Confirmar se seu computador é Windows (por causa do MT5).
+
+## Diário de resultados
+- **2026-11-24 — MM200 na BOVA11** (`resultados/2026-11-24_mm200_bova11.txt`): reduz a queda máxima
+  (−31% contra −50%), mas rende menos que comprar e segurar e menos que o CDI. Não serve como robô.
+- **2026-11-24 — Swing trade, 15 ações** (`resultados/2026-11-24_swing_correcao_vs_reddit.txt`):
+  - A) Correção com stop: fator de lucro 1,01 (zero vantagem depois dos custos); perde para o CDI na 2ª metade. **Reprovada.**
+  - B) Estratégia do Reddit (preço médio para baixo, sem stop): 100% de acerto nas 15 ações que sobreviveram,
+    mas zerou a conta na Americanas e teve quedas de −74% a −81% em Oi, Casas Bahia, CVC e Magalu. **Reprovada por risco.**
