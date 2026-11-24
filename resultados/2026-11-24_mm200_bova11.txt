@@ -1,0 +1,17 @@
+
+=== Período completo: 2010-10-22 a 2026-11-23 ===
+Estratégia MM200   | total   +74.5% | ao ano  +3.6% | vol 16.3% | pior queda -30.7% | sharpe~ -0.39
+Comprar e segurar  | total  +134.9% | ao ano  +5.5% | vol 23.6% | pior queda -49.7% | sharpe~ -0.19
+Trocas de posição: 154 | tempo comprado: 62%
+
+=== 1ª metade (dentro da amostra): 2010-10-22 a 2018-11-05 ===
+Estratégia MM200   | total   +26.4% | ao ano  +3.0% | vol 15.8% | pior queda -27.3% | sharpe~ -0.44
+Comprar e segurar  | total   +24.6% | ao ano  +2.8% | vol 23.3% | pior queda -49.7% | sharpe~ -0.31
+Trocas de posição: 71 | tempo comprado: 51%
+
+=== 2ª metade (fora da amostra): 2018-11-06 a 2026-11-23 ===
+Estratégia MM200   | total   +38.0% | ao ano  +4.1% | vol 16.8% | pior queda -30.7% | sharpe~ -0.35
+Comprar e segurar  | total   +88.6% | ao ano  +8.3% | vol 24.0% | pior queda -46.9% | sharpe~ -0.07
+Trocas de posição: 83 | tempo comprado: 73%
+
+Sinal para o próximo pregão: FORA (fechamento 162.35 vs MM200 177.90)
