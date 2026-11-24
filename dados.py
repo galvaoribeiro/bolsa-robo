@@ -50,3 +50,33 @@ def cdi(atualizar: bool = False) -> pd.Series:
                        for p in partes}, name="cdi").sort_index()
         s.to_csv(arq, header=True)
     return pd.read_csv(arq, index_col=0, parse_dates=True)["cdi"]
+
+
+def intraday(ticker: str, intervalo: str = "1m") -> pd.DataFrame:
+    """Barras intradiárias (horário de Brasília). O Yahoo guarda pouco histórico (1m: ~30 dias,
+    5m: ~60 dias), então cada download é JUNTADO ao cache: rodando com frequência, o histórico cresce."""
+    import yfinance as yf
+    from datetime import datetime, timedelta
+    PASTA.mkdir(exist_ok=True)
+    arq = PASTA / f"{ticker}_{intervalo}.csv"
+    partes = []
+    if intervalo == "1m":                       # Yahoo só entrega 1m em janelas de até 8 dias
+        hoje = datetime.now()
+        for k in range(4):
+            fim, ini = hoje - timedelta(days=7 * k), hoje - timedelta(days=7 * (k + 1))
+            partes.append(yf.download(ticker, start=ini.strftime("%Y-%m-%d"),
+                                      end=(fim + timedelta(days=1)).strftime("%Y-%m-%d"),
+                                      interval="1m", progress=False, auto_adjust=False))
+    else:
+        partes.append(yf.download(ticker, period="60d", interval=intervalo, progress=False, auto_adjust=False))
+    novo = pd.concat([p for p in partes if len(p)])
+    if isinstance(novo.columns, pd.MultiIndex):
+        novo.columns = novo.columns.get_level_values(0)
+    novo = novo[["Open", "High", "Low", "Close", "Volume"]]
+    novo.index = novo.index.tz_convert("America/Sao_Paulo").tz_localize(None)
+    if arq.exists():
+        novo = pd.concat([pd.read_csv(arq, index_col=0, parse_dates=True), novo])
+    novo = novo[~novo.index.duplicated(keep="last")].sort_index()
+    novo = novo[(novo[["Open", "High", "Low", "Close"]] > 0).all(axis=1)]
+    novo.to_csv(arq)
+    return novo

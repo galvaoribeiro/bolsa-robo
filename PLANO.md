@@ -75,3 +75,10 @@ Escrever e revisar o código, achar erros no backtest (olhar o futuro, ignorar c
   - Nas 21 ações deu +14,8%, mas só por causa da Magalu (subiu mais de 100x em 2015–2020). Sem ela: +4,6%.
   - Pior operação: −71,5% (Americanas, jan/2023). A ação abriu muito abaixo do stop, então o stop não protegeu.
   - **Reprovado.** É a 5ª ideia testada: o limite do plano foi atingido.
+- **2026-11-24 — Estratégia do Reddit no gráfico de minuto (day trade, 10h30–16h45)** (`resultados/2026-11-24_reddit_intraday.txt`):
+  - **Amostra curta:** o Yahoo só tem cerca de 30 dias de gráfico de 1 minuto e 60 dias de 5 minutos. Serve para validar o código, não a estratégia.
+  - Adaptada (alvo 0,3%, stop de 1,5% no preço médio, zeragem às 16h45): pior operação −1,55% (a adaptação limitou a perda),
+    mas o resultado ficou abaixo do CDI: −0,23% contra +0,92% em 18 pregões (1m) e +0,94% contra +3,11% em 60 pregões (5m). Fator de lucro 1,14.
+  - Alvo de 0,1% (mais próximo do original): 90% de acerto, mas fator de lucro 0,6–0,7 (os custos comem o ganho).
+  - Original (sem stop, leva a posição para o dia seguinte): −6,9% em 60 pregões, pior operação −45% (RENT3; queda de −40% em 26/10/2026, que não consegui confirmar fora do Yahoo).
+  - Antes de qualquer conclusão: rodar com anos de dados de minuto do MetaTrader 5 (no PC Windows) e incluir o IR de 20% de day trade.
