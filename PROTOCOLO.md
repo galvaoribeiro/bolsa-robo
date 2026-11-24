@@ -51,3 +51,16 @@ Testando muitas estratégias, alguma vai parecer ótima só por sorte. Para redu
 6. Multiativos: tendência por ativo com peso pelo risco (cada ativo entra se acima da média de 10 meses)
 7. Combinação de 6 (multiativos) com a melhor carteira de ações
 8. Sazonalidade de virada de mês no Ibovespa (verificação rápida)
+
+## Alterações registradas
+- **2026-11-24 — Proventos nos trechos sem Yahoo.** Na montagem do painel, ~70% dos códigos que já estiveram
+  entre os 200 mais negociados não existem no Yahoo (troca de código, incorporação, saída da bolsa) e só têm preço
+  bruto da B3, sem dividendos. Uma rodada de depuração (2005–2016, não registrada como tentativa) deu momentum
+  6,6 pontos abaixo da carteira equivalente do NEFIN. Isso se explica por custos (~2,3 pontos) e falta de proventos.
+  Decisão: rodar as famílias de ações com o **dividend yield médio do mercado (NEFIN)** somado nesses trechos
+  (estimativa central) e repetir as finalistas **sem proventos** nesses trechos (limite pessimista).
+  Nenhuma regra de estratégia ou critério mudou.
+- **2026-11-24 — Limpeza do preço bruto.** Grupamentos de até 250.000:1 (2004–2008) e "prints" isolados antes de
+  mudanças de instrumento geravam retornos falsos de até +250.000% num dia. Saltos são tratados como evento
+  societário quando a quantidade negociada muda na proporção inversa; saltos acima de 50% depois de pregão com
+  menos de 10 negócios ou pausa de mais de 5 pregões, ou acima de +300% sem confirmação, ficam sem retorno.

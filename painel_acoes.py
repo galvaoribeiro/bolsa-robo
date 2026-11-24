@@ -22,7 +22,8 @@ import pandas as pd
 import dados_b3
 
 PASTA = Path(__file__).parent / "dados" / "painel"
-FATORES = np.array([1.5, 2, 3, 4, 5, 6, 7, 8, 10, 12, 15, 20, 25, 30, 40, 50, 100, 200, 500, 1000], float)
+FATORES = np.array([1.5, 2, 3, 4, 5, 6, 7, 8, 10, 12, 15, 20, 25, 30, 40, 50, 100, 200, 250, 500, 1000,
+                    2000, 2500, 5000, 10000, 20000, 25000, 50000, 100000, 250000], float)
 
 
 def candidatos(cot: pd.DataFrame, top: int = 200) -> list[str]:
@@ -37,27 +38,26 @@ def candidatos(cot: pd.DataFrame, top: int = 200) -> list[str]:
 
 
 def retorno_bruto_corrigido(df: pd.DataFrame) -> pd.Series:
-    """Retorno diário pelo preço oficial, desfazendo desdobramentos/grupamentos detectados
-    (salto de preço ≈ fator 'redondo' e quantidade negociada mudando na proporção inversa)."""
+    """Retorno diário pelo preço oficial, desfazendo desdobramentos/grupamentos detectados.
+    Um salto de preço é tratado como evento societário quando a quantidade negociada muda na
+    proporção inversa (mais perto do fator do salto do que de "nada mudou"). Fatores grandes
+    (ex.: grupamento de 10.000 para 1, comum em 2004–2008) também são cobertos."""
     df = df.set_index("data").sort_index()
     p, q = df["fechamento"], df["quantidade"].astype(float)
     r = p / p.shift(1)
     for i in np.where((r > 1.45) | (r < 0.70))[0]:
         razao = r.iloc[i]
-        alvo = razao if razao > 1 else 1 / razao
-        k = FATORES[np.argmin(np.abs(FATORES / alvo - 1))]
-        if abs(k / alvo - 1) > 0.12:
-            continue
         antes = q.iloc[max(0, i - 20):i].median()
         depois = q.iloc[i:i + 20].median()
-        if antes <= 0 or depois <= 0:
+        if not (antes > 0 and depois > 0):
             continue
+        esperado = 1 / razao                         # desdobramento: preço cai, quantidade sobe
         mudou = depois / antes
-        esperado = k if razao < 1 else 1 / k        # desdobramento: preço cai, quantidade sobe
-        # a quantidade precisa ter mudado mais perto do fator esperado do que de "nada mudou"
         if abs(np.log(mudou / esperado)) < 0.5 * abs(np.log(esperado)):
-            fator = (1 / k) if razao > 1 else k
-            r.iloc[i] = razao * fator
+            alvo = razao if razao > 1 else 1 / razao
+            k = FATORES[np.argmin(np.abs(FATORES / alvo - 1))]
+            fator = k if abs(k / alvo - 1) <= 0.12 else alvo   # fator "redondo" quando bate
+            r.iloc[i] = razao / fator if razao > 1 else razao * fator
     return r - 1
 
 
@@ -94,7 +94,9 @@ def montar(ini: int = 2003, fim: int = 2026):
     yh = yahoo(cods)
     print(f"Yahoo tem {sum(1 for c in cods if len(yh.get(c, [])) > 0)} desses códigos")
 
-    rets, vols, fontes = {}, {}, {}
+    calendario = pd.Index(sorted(cot["data"].unique()))
+    rets, vols, fontes, mascaras = {}, {}, {}, {}
+    descartados = 0
     for cod, g in cot.groupby("codigo"):
         g = g.sort_values("data")
         bruto = retorno_bruto_corrigido(g)
@@ -106,21 +108,44 @@ def montar(ini: int = 2003, fim: int = 2026):
         usa_y = ry.notna() & ((ry - bruto).abs() < 0.12)   # Yahoo coerente com o preço oficial
         r = bruto.where(~usa_y, ry)
         r.iloc[0] = np.nan
+        # saltos depois de negociação rala/pausa = reinício da série (mudança de instrumento,
+        # print isolado); saltos > +300% sem confirmação = erro de dado. Ficam sem retorno.
+        pos = calendario.get_indexer(g["data"])
+        pausa = pd.Series(np.diff(pos, prepend=pos[0] - 1), index=datas)
+        neg_ant = g.set_index("data")["negocios"].shift(1)
+        suspeito = (r.abs() > 0.5) & ((neg_ant < 10) | (pausa > 5)) | (r > 3.0)
+        descartados += int(suspeito.sum())
+        r[suspeito] = np.nan
         rets[cod] = r
         vols[cod] = g.set_index("data")["volume"]
         fontes[cod] = usa_y.mean()
+        mascaras[cod] = usa_y
     ret = pd.DataFrame(rets).sort_index()
     vol = pd.DataFrame(vols).reindex(ret.index)
     ret.to_parquet(PASTA / "retorno.parquet")
     vol.to_parquet(PASTA / "volume.parquet")
     pd.Series(fontes, name="proporcao_yahoo").to_frame().to_parquet(PASTA / "fonte.parquet")
+    pd.DataFrame(mascaras).reindex(ret.index).fillna(False).astype(bool).to_parquet(PASTA / "do_yahoo.parquet")
+    print(f"Retornos descartados como reinício de série/erro: {descartados}")
     print(f"Painel: {ret.shape[0]} pregões × {ret.shape[1]} códigos | "
           f"retornos vindos do Yahoo: {np.mean(list(fontes.values())):.0%} (média por código)")
     return ret, vol
 
 
-def carregar():
-    return pd.read_parquet(PASTA / "retorno.parquet"), pd.read_parquet(PASTA / "volume.parquet")
+def carregar(dividendos: str = "media"):
+    """dividendos='nenhum': trechos sem Yahoo ficam sem proventos (limite pessimista).
+    dividendos='media': nesses trechos soma o dividend yield médio do mercado (NEFIN) do período."""
+    ret = pd.read_parquet(PASTA / "retorno.parquet")
+    vol = pd.read_parquet(PASTA / "volume.parquet")
+    if dividendos == "media":
+        do_y = pd.read_parquet(PASTA / "do_yahoo.parquet").reindex_like(ret).fillna(False).astype(bool)
+        dy = pd.read_csv(Path(__file__).parent / "dados" / "nefin" / "dividend_yield.csv")
+        dy.index = pd.to_datetime(dict(year=dy.ano, month=dy.mes, day=dy.dia))
+        dy = dy["yield_week_pc"].reindex(ret.index, method="ffill").bfill()
+        diario = (1 + dy) ** (1 / 252) - 1
+        add = pd.DataFrame(np.outer(diario.to_numpy(), np.ones(ret.shape[1])), index=ret.index, columns=ret.columns)
+        ret = ret + add.where(ret.notna() & ~do_y, 0.0)
+    return ret, vol
 
 
 if __name__ == "__main__":

@@ -27,20 +27,14 @@ CUSTO = 0.002
 
 
 class Sinais:
-    def __init__(self, n_universo=100):
-        ret, vol = painel_acoes.carregar()
+    def __init__(self, n_universo=100, dividendos="media"):
+        ret, vol = painel_acoes.carregar(dividendos)
+        self.dividendos = dividendos
         self.ret = ret
         datas = ret.index
-        self.preco = (1 + ret.fillna(0)).cumprod().where(ret.notna())
-        # primeira observação de cada código: preço existe mas retorno é NaN -> marca preço
-        primeira = ret.apply(lambda s: s.first_valid_index())
-        for c, d0 in primeira.items():
-            if d0 is not None:
-                i = datas.get_loc(d0)
-                if i > 0:
-                    self.preco.iloc[i - 1, self.preco.columns.get_loc(c)] = (
-                        self.preco.iloc[i, self.preco.columns.get_loc(c)] / (1 + ret.iloc[i][c]))
         negociou = ret.notna() | vol.notna()
+        # índice de retorno total; NaN nos dias em que o código não negociou
+        self.preco = (1 + ret.fillna(0)).cumprod().where(negociou)
         self.liq = vol.fillna(0).rolling(63, min_periods=63).mean()
         self.frac = negociou.rolling(63, min_periods=63).mean()
         self.hist = negociou.cumsum()
@@ -116,7 +110,8 @@ def estrategia(s: Sinais, sinal="mom12", tamanho="terco", filtro_meses=None, met
 def rodar(s, cdi, nome, familia, params, custo=CUSTO, ir=False, imprimir=True):
     r = motor.simular(s.preco, estrategia(s, **params), cdi, inicio="2005-01-01", custo=custo, ir=ir)
     m = motor.metricas(r.curva, cdi)
-    motor.registrar(familia, nome, {**params, "custo": custo, "ir": ir}, m, {"giro_anual": round(r.giro_anual, 2)})
+    motor.registrar(familia, nome, {**params, "custo": custo, "ir": ir, "dividendos": s.dividendos}, m,
+                    {"giro_anual": round(r.giro_anual, 2)})
     if imprimir:
         print(motor.linha_texto(nome, m) + f" | giro {r.giro_anual:.1f}x")
     return r, m
